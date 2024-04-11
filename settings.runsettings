@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <TestRunParameters>
+    <Parameter name="GoogleURL" value="https://www.google.com/" />
+    <Parameter name="usernameCRM" value="pcxtester@ca9.onmicrosoft.com" />
+    <Parameter name="passwordCRM" value="Pr0centrix" />
+  </TestRunParameters>
+</RunSettings>
+
+
