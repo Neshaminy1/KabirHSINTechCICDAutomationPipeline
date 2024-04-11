@@ -16,7 +16,7 @@ namespace HSINTechCICDAutomationPipeline.Tests.Practice
     public class SeleniumOne
     {
         //Declare variable
-        public IWebDriver driver = null;
+        public IWebDriver driver;
 
         [TestMethod]
         public void TestMethod_SeleniumOne()
