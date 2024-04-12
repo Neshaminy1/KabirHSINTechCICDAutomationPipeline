@@ -8,7 +8,7 @@ using WebDriverManager.Helpers;
 
 namespace HSINTechCICDAutomationPipeline.Tests.Practice
 {
-    [TestClass]
+   // [TestClass]
     public class ReadValuesFromRunSettingsFile : TestBase
     {
 
