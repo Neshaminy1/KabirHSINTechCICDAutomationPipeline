@@ -39,7 +39,6 @@ namespace HSINTechCICDAutomationPipeline.Tests.Practice
             //driver = new ChromeDriver();
 
 
-
             string googleurl = TestContext.Properties["GoogleURL"].ToString();
             Console.WriteLine(googleurl);
             System.Diagnostics.Trace.WriteLine(googleurl);
