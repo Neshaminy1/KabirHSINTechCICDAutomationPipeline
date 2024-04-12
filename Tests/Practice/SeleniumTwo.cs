@@ -22,8 +22,13 @@ namespace HSINTechCICDAutomationPipeline.Tests.Practice
         {
             //*****************************************************************************
 
-            //driver = new ChromeDriver("\\bin\\Debug\\net8.0\\chromedriver.exe");
-            driver = new ChromeDriver(@"C:\HSINTechChallenge\HSINTechCICDAutomationPipeline\bin\Debug\net8.0\chromedriver.exe");
+            //========================== Headless Mode ==========================
+            ChromeOptions options = new ChromeOptions();
+            options.AddArgument("--headless=new");
+            driver = new ChromeDriver(options);
+            //====================================================
+
+            //driver = new ChromeDriver(@"C:\HSINTechChallenge\HSINTechCICDAutomationPipeline\bin\Debug\net8.0\chromedriver.exe");
 
             driver.Navigate().GoToUrl("https://www.google.com");
             Console.WriteLine("Open google home page");
