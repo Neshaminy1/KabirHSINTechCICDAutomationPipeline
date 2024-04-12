@@ -8,7 +8,7 @@ using WebDriverManager.Helpers;
 
 namespace HSINTechCICDAutomationPipeline.Tests.Practice
 {
-   // [TestClass]
+    [TestClass]
     public class ReadValuesFromRunSettingsFile : TestBase
     {
 
@@ -29,8 +29,17 @@ namespace HSINTechCICDAutomationPipeline.Tests.Practice
         public void OpenGoogleAndEnterValue()
         {
 
+
             new DriverManager().SetUpDriver(new ChromeConfig(), VersionResolveStrategy.MatchingBrowser);
-            driver = new ChromeDriver();
+            //driver = new ChromeDriver();
+
+
+            //========================== Headless Mode ==========================
+            ChromeOptions options = new ChromeOptions();
+            options.AddArgument("--headless=new");
+            driver = new ChromeDriver(options);
+            //====================================================
+
 
             string GoogleURL = TestContext.Properties["GoogleURL"].ToString();
             Console.WriteLine(GoogleURL);
