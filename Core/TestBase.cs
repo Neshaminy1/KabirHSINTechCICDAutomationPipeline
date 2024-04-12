@@ -1,16 +1,16 @@
 ﻿using AventStack.ExtentReports;
+using AventStack.ExtentReports.Configuration;
 using AventStack.ExtentReports.Reporter.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.IO;
+using System.Reflection;
 
 namespace HSINTechCICDAutomationPipeline.Core
 {
     public class TestBase
     {
+
         //============================== Extent Report Variables ==================================
         public static ExtentReports extent;
         public static ExtentTest exParentTest;
