@@ -53,5 +53,12 @@ namespace HSINTechCICDAutomationPipeline.Tests.Practice
         }
 
 
+        [TestCleanup]
+        public void TeardownTest()
+        {
+            driver.Quit();
+            Console.WriteLine("Close Browser");
+            Console.WriteLine("Quit Driver");
+        }
     }
 }
