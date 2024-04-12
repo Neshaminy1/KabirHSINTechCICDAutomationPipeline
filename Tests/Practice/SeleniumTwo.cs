@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WebDriverManager;
+using AngleSharp.Io;
+using AventStack.ExtentReports;
 
 namespace HSINTechCICDAutomationPipeline.Tests.Practice
 {
@@ -20,7 +22,8 @@ namespace HSINTechCICDAutomationPipeline.Tests.Practice
         {
             //*****************************************************************************
 
-            driver = new ChromeDriver();
+            //driver = new ChromeDriver("\\bin\\Debug\\net8.0\\chromedriver.exe");
+            driver = new ChromeDriver(@"C:\HSINTechChallenge\HSINTechCICDAutomationPipeline\bin\Debug\net8.0\chromedriver.exe");
 
             driver.Navigate().GoToUrl("https://www.google.com");
             Console.WriteLine("Open google home page");

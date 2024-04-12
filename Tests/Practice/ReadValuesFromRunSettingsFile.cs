@@ -8,7 +8,7 @@ using WebDriverManager.Helpers;
 
 namespace HSINTechCICDAutomationPipeline.Tests.Practice
 {
-    //[TestClass]
+    [TestClass]
     public class ReadValuesFromRunSettingsFile : TestBase
     {
 
@@ -39,20 +39,16 @@ namespace HSINTechCICDAutomationPipeline.Tests.Practice
 
             driver.Navigate().GoToUrl(GoogleURL);
             Console.WriteLine("Open google home page");
-            exChildTest.Log(Status.Pass, "Open google home page");
 
             driver.Manage().Window.Maximize();
             Console.WriteLine("Maximize the window");
-            exChildTest.Log(Status.Pass, "Maximize the window");
 
             var searchBox = driver.FindElement(By.Name("q"));
             searchBox.SendKeys("Selenium ChromeDriver");
             Console.WriteLine("Enter Selenium ChromeDriver into Search Text box");
-            exChildTest.Log(Status.Pass, "Enter Selenium ChromeDriver into Search Text box");
 
             searchBox.Submit();
             Console.WriteLine("Click Search / Submit");
-            exChildTest.Log(Status.Pass, "Click Search / Submit");
             Thread.Sleep(3000);
         }
 
