@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<RunSettings>
+﻿<RunSettings>
   <TestRunParameters>
     <Parameter name="GoogleURL" value="https://www.google.com" />
   </TestRunParameters>
 </RunSettings>
+

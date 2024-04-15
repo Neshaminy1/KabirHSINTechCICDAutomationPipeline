@@ -1,5 +1,6 @@
 ﻿using AventStack.ExtentReports;
 using HSINTechCICDAutomationPipeline.Core;
+using MongoDB.Bson.Serialization.Serializers;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using WebDriverManager;
@@ -8,12 +9,15 @@ using WebDriverManager.Helpers;
 
 namespace HSINTechCICDAutomationPipeline.Tests.Practice
 {
-    //[TestClass]
+   // [TestClass]
     public class ReadValuesFromRunSettingsFile : TestBase
     {
 
         // This is for the runsetting file to instantiate
-        public TestContext TestContext { get; set; }
+        public TestContext? TestContext { get; set; }
+
+        //Declare variable
+        public IWebDriver? driver;
 
 
         [TestMethod]
@@ -30,17 +34,19 @@ namespace HSINTechCICDAutomationPipeline.Tests.Practice
         {
 
             //========================== Headless Mode ==========================
-            ChromeOptions options = new ChromeOptions();
-            options.AddArgument("--headless=new");
-            driver = new ChromeDriver(options);
+           // ChromeOptions options = new ChromeOptions();
+          //  options.AddArgument("--headless=new");
+          //  driver = new ChromeDriver(options);
             //====================================================
 
             new DriverManager().SetUpDriver(new ChromeConfig(), VersionResolveStrategy.MatchingBrowser);
-            //driver = new ChromeDriver();
+            driver = new ChromeDriver();
 
 
             string googleurl = TestContext.Properties["GoogleURL"].ToString();
-            Console.WriteLine(googleurl);
+            //var googleurl = TestContext.Properties["GoogleURL"].ToString();
+
+            Console.WriteLine("Get url:" + googleurl);
             System.Diagnostics.Trace.WriteLine(googleurl);
 
 
@@ -49,14 +55,6 @@ namespace HSINTechCICDAutomationPipeline.Tests.Practice
 
             driver.Manage().Window.Maximize();
             Console.WriteLine("Maximize the window");
-
-            var searchBox = driver.FindElement(By.Name("q"));
-            searchBox.SendKeys("Selenium ChromeDriver");
-            Console.WriteLine("Enter Selenium ChromeDriver into Search Text box");
-
-            searchBox.Submit();
-            Console.WriteLine("Click Search / Submit");
-            Thread.Sleep(3000);
         }
 
 
