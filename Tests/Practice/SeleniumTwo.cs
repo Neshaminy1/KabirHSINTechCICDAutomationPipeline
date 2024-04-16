@@ -15,7 +15,7 @@ namespace HSINTechCICDAutomationPipeline.Tests.Practice
     public class SeleniumTwo
     {
         //Declare variable
-        public IWebDriver driver;
+        public IWebDriver? driver;
 
         [TestMethod]
         public void TestMethod_SeleniumTwo()

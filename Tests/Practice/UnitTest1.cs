@@ -7,7 +7,7 @@ namespace HSINTechCICDAutomationPipeline.Tests.Practice
         public void TestMethod1()
         {
             Console.WriteLine("Hello World");
-            
+
             //Assert.Fail("Assert Fail");
         }
     }
