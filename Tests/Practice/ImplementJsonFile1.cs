@@ -23,11 +23,6 @@ namespace HSINTechCICDAutomationPipeline.Tests.Practice
         public void ImplementJsonFileMethod1()
         {
 
-            //string providefilepath = "C:\\HKabirACMSAutomation\\Master\\src\\ACMS.Tests.UI\\TestData\\sample.pdf";
-            //string text = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\app.json";
-            //Console.WriteLine("providefilepath: " + text);
-
-
             string text = File.ReadAllText(@"./app.json");
             //string text = File.ReadAllText(@"C:\\HSINTechChallenge\\KabirHSINTechCICDAutomationPipeline\\app.json");
             var jsonfilevariables = JsonSerializer.Deserialize<JsonFileVariables>(text);
@@ -39,40 +34,41 @@ namespace HSINTechCICDAutomationPipeline.Tests.Practice
 
 
 
-            /*            //*****************************************************************************
+            //*****************************************************************************
 
-                        //========================== Headless Mode ==========================
-                        ChromeOptions options = new ChromeOptions();
-                        options.AddArgument("--headless=new");
-                        driver = new ChromeDriver(options);
-                        //====================================================
+            //========================== Headless Mode ==========================
+            //ChromeOptions options = new ChromeOptions();
+            //options.AddArgument("--headless=new");
+            //driver = new ChromeDriver(options);
+            //====================================================
 
-                        new DriverManager().SetUpDriver(new ChromeConfig(), VersionResolveStrategy.MatchingBrowser);
+            //new DriverManager().SetUpDriver(new ChromeConfig(), VersionResolveStrategy.MatchingBrowser);
 
-                        driver.Navigate().GoToUrl(jsonfilevariables.googleURL);
-                        Console.WriteLine("Open google home page");
+            driver = new ChromeDriver();
+            driver.Navigate().GoToUrl(jsonfilevariables.googleURL);
+            Console.WriteLine("Open google home page");
 
-                        driver.Manage().Window.Maximize();
-                        Console.WriteLine("Maximize the window");
+            driver.Manage().Window.Maximize();
+            Console.WriteLine("Maximize the window");
 
-                        var searchBox = driver.FindElement(By.Name("q"));
-                        searchBox.SendKeys(jsonfilevariables.searchkeyword1);
-                        Console.WriteLine("Enter Selenium ChromeDriver into Search Text box");
+            var searchBox = driver.FindElement(By.Name("q"));
+            searchBox.SendKeys(jsonfilevariables.searchkeyword1);
+            Console.WriteLine("Enter Selenium ChromeDriver into Search Text box");
 
-                        searchBox.Submit();
-                        Console.WriteLine("Click Search / Submit");
-                        Thread.Sleep(3000);*/
+            searchBox.Submit();
+            Console.WriteLine("Click Search / Submit");
+            Thread.Sleep(3000);
 
 
         }
 
-/*        [TestCleanup]
+        [TestCleanup]
         public void TeardownTest()
         {
             driver.Quit();
             Console.WriteLine("Close Browser");
             Console.WriteLine("Quit Driver");
-        }*/
+        }
 
     }
 }
