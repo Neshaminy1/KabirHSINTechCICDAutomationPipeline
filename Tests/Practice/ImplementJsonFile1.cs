@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using WebDriverManager.DriverConfigs.Impl;
+using WebDriverManager.Helpers;
+using WebDriverManager;
 
 namespace HSINTechCICDAutomationPipeline.Tests.Practice
 {
@@ -31,7 +34,13 @@ namespace HSINTechCICDAutomationPipeline.Tests.Practice
 
             //*****************************************************************************
 
-            driver = new ChromeDriver();
+            //========================== Headless Mode ==========================
+            ChromeOptions options = new ChromeOptions();
+            options.AddArgument("--headless=new");
+            driver = new ChromeDriver(options);
+            //====================================================
+
+            new DriverManager().SetUpDriver(new ChromeConfig(), VersionResolveStrategy.MatchingBrowser);
 
             driver.Navigate().GoToUrl(jsonfilevariables.googleURL);
             Console.WriteLine("Open google home page");
