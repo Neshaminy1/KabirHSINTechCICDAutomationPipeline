@@ -23,8 +23,13 @@ namespace HSINTechCICDAutomationPipeline.Tests.Practice
         public void ImplementJsonFileMethod1()
         {
 
-            //string text = File.ReadAllText(@"./app.json");
-            string text = File.ReadAllText(@"C:\\HSINTechChallenge\\KabirHSINTechCICDAutomationPipeline\\app.json");
+            //string providefilepath = "C:\\HKabirACMSAutomation\\Master\\src\\ACMS.Tests.UI\\TestData\\sample.pdf";
+            //string text = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\app.json";
+            //Console.WriteLine("providefilepath: " + text);
+
+
+            string text = File.ReadAllText(@"./app.json");
+            //string text = File.ReadAllText(@"C:\\HSINTechChallenge\\KabirHSINTechCICDAutomationPipeline\\app.json");
             var jsonfilevariables = JsonSerializer.Deserialize<JsonFileVariables>(text);
 
 
@@ -33,9 +38,6 @@ namespace HSINTechCICDAutomationPipeline.Tests.Practice
             Console.WriteLine($"Job title: {jsonfilevariables.searchkeyword2}");
 
 
-            //string providefilepath = "C:\\HKabirACMSAutomation\\Master\\src\\ACMS.Tests.UI\\TestData\\sample.pdf";
-            string providefilepath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\app.json";
-            Console.WriteLine("providefilepath: " + providefilepath); 
 
             /*            //*****************************************************************************
 
