@@ -24,7 +24,7 @@ namespace HSINTechCICDAutomationPipeline.Tests.Practice
         {
 
             //string text = File.ReadAllText(@"./app.json");
-            string text = File.ReadAllText(@"C:\HSINTechChallenge\KabirHSINTechCICDAutomationPipeline\app.json");
+            string text = File.ReadAllText(@"C:\\HSINTechChallenge\\KabirHSINTechCICDAutomationPipeline\\app.json");
             var jsonfilevariables = JsonSerializer.Deserialize<JsonFileVariables>(text);
 
 
@@ -32,40 +32,45 @@ namespace HSINTechCICDAutomationPipeline.Tests.Practice
             Console.WriteLine($"Last name: {jsonfilevariables.searchkeyword1}");
             Console.WriteLine($"Job title: {jsonfilevariables.searchkeyword2}");
 
-            //*****************************************************************************
 
-            //========================== Headless Mode ==========================
-            ChromeOptions options = new ChromeOptions();
-            options.AddArgument("--headless=new");
-            driver = new ChromeDriver(options);
-            //====================================================
+            //string providefilepath = "C:\\HKabirACMSAutomation\\Master\\src\\ACMS.Tests.UI\\TestData\\sample.pdf";
+            string providefilepath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\app.json";
+            Console.WriteLine("providefilepath: " + providefilepath); 
 
-            new DriverManager().SetUpDriver(new ChromeConfig(), VersionResolveStrategy.MatchingBrowser);
+            /*            //*****************************************************************************
 
-            driver.Navigate().GoToUrl(jsonfilevariables.googleURL);
-            Console.WriteLine("Open google home page");
+                        //========================== Headless Mode ==========================
+                        ChromeOptions options = new ChromeOptions();
+                        options.AddArgument("--headless=new");
+                        driver = new ChromeDriver(options);
+                        //====================================================
 
-            driver.Manage().Window.Maximize();
-            Console.WriteLine("Maximize the window");
+                        new DriverManager().SetUpDriver(new ChromeConfig(), VersionResolveStrategy.MatchingBrowser);
 
-            var searchBox = driver.FindElement(By.Name("q"));
-            searchBox.SendKeys(jsonfilevariables.searchkeyword1);
-            Console.WriteLine("Enter Selenium ChromeDriver into Search Text box");
+                        driver.Navigate().GoToUrl(jsonfilevariables.googleURL);
+                        Console.WriteLine("Open google home page");
 
-            searchBox.Submit();
-            Console.WriteLine("Click Search / Submit");
-            Thread.Sleep(3000);
+                        driver.Manage().Window.Maximize();
+                        Console.WriteLine("Maximize the window");
+
+                        var searchBox = driver.FindElement(By.Name("q"));
+                        searchBox.SendKeys(jsonfilevariables.searchkeyword1);
+                        Console.WriteLine("Enter Selenium ChromeDriver into Search Text box");
+
+                        searchBox.Submit();
+                        Console.WriteLine("Click Search / Submit");
+                        Thread.Sleep(3000);*/
 
 
         }
 
-        [TestCleanup]
+/*        [TestCleanup]
         public void TeardownTest()
         {
             driver.Quit();
             Console.WriteLine("Close Browser");
             Console.WriteLine("Quit Driver");
-        }
+        }*/
 
     }
 }
