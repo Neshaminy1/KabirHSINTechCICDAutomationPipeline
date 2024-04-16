@@ -17,7 +17,7 @@ namespace HSINTechCICDAutomationPipeline.Core
         public static ExtentTest exChildTest;
         public static string dirpath;
 
-        public IWebDriver driver = null;
+        private readonly IWebDriver driver;
 
 
         [AssemblyInitialize()]

@@ -8,7 +8,7 @@ namespace HSINTechCICDAutomationPipeline.Core
     public class BasePage
     {
 
-        public IWebDriver driver = null;
+        private readonly IWebDriver driver;
         public BasePage(IWebDriver d)
         {
             driver = d;
@@ -25,6 +25,23 @@ namespace HSINTechCICDAutomationPipeline.Core
         {
             return value.ToString("yyyyMMddHHmmssffff");
         }
+
+        public void LaunchURL(string URL)
+        {
+            driver.Navigate().GoToUrl(URL);
+            driver.Manage().Window.Maximize();
+            Thread.Sleep(1000);
+
+        }
+        public void Submit(string locator)
+        {
+            var searchBox = driver.FindElement(By.XPath(locator));
+            searchBox.Submit();
+            Console.WriteLine("Click Search / Submit");
+            Thread.Sleep(3000);
+
+        }
+
         public void SwitchFrameTo(int index, int waittime)
         {
             //Switch Frame

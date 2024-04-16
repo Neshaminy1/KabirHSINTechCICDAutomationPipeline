@@ -18,6 +18,7 @@ namespace HSINTechCICDAutomationPipeline.Tests.Practice
         public IWebDriver? driver;
 
         [TestMethod]
+        [TestCategory("Smoke")]
         public void TestMethod_SeleniumTwo()
         {
             //*****************************************************************************

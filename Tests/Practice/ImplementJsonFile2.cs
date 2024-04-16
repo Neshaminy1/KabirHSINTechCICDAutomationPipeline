@@ -10,29 +10,24 @@ using System.Threading.Tasks;
 using WebDriverManager.DriverConfigs.Impl;
 using WebDriverManager.Helpers;
 using WebDriverManager;
+using HSINTechCICDAutomationPipeline.Pages.Practice;
+using HSINTechCICDAutomationPipeline.Core;
 
 namespace HSINTechCICDAutomationPipeline.Tests.Practice
 {
     [TestClass]
-    public class ImplementJsonFile1
+    public class ImplementJsonFile2
     {
         //Declare variable
         private IWebDriver? driver;
 
         [TestMethod]
         [TestCategory("Regression")]
-        public void ImplementJsonFileMethod1()
+        public void ImplementJsonFileMethod2()
         {
-
             string text = File.ReadAllText(@"./app.json");
             //string text = File.ReadAllText(@"C:\\HSINTechChallenge\\KabirHSINTechCICDAutomationPipeline\\app.json");
             var jsonfilevariables = JsonSerializer.Deserialize<JsonFileVariables>(text);
-
-
-            Console.WriteLine($"First name: {jsonfilevariables.googleURL}");
-            Console.WriteLine($"Last name: {jsonfilevariables.searchkeyword1}");
-            Console.WriteLine($"Job title: {jsonfilevariables.searchkeyword2}");
-
 
 
             //*****************************************************************************
@@ -43,24 +38,19 @@ namespace HSINTechCICDAutomationPipeline.Tests.Practice
             driver = new ChromeDriver(options);
             //====================================================
 
-            new DriverManager().SetUpDriver(new ChromeConfig(), VersionResolveStrategy.MatchingBrowser);
-
+            //new DriverManager().SetUpDriver(new ChromeConfig(), VersionResolveStrategy.MatchingBrowser);
             //driver = new ChromeDriver();
 
+            GoogleSeachPage googleseachpage = new GoogleSeachPage();
+            BasePage basepage = new BasePage(driver);
 
-            driver.Navigate().GoToUrl(jsonfilevariables.googleURL);
+
+            basepage.LaunchURL(jsonfilevariables.googleURL);
             Console.WriteLine("Open google home page");
 
-            driver.Manage().Window.Maximize();
-            Console.WriteLine("Maximize the window");
+            basepage.EnterTextPressEnterUsingSendkeys(googleseachpage.googlesearchbox, jsonfilevariables.searchkeyword1);
+            Console.WriteLine($"Enter {jsonfilevariables.searchkeyword1} into Search Text boxl");
 
-            var searchBox = driver.FindElement(By.Name("q"));
-            searchBox.SendKeys(jsonfilevariables.searchkeyword1);
-            Console.WriteLine("Enter Selenium ChromeDriver into Search Text box");
-
-            searchBox.Submit();
-            Console.WriteLine("Click Search / Submit");
-            Thread.Sleep(3000);
 
 
         }
