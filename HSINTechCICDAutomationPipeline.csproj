@@ -29,7 +29,6 @@
 
   <ItemGroup>
     <Folder Include="ExecutionResult\ScreenShots\" />
-    <Folder Include="Forms\" />
     <Folder Include="TestData\" />
     <Folder Include="NewFolder\" />
   </ItemGroup>
